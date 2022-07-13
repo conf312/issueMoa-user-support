@@ -2,7 +2,6 @@ package com.issuemoa.user.support.domain.board;
 
 import com.issuemoa.user.support.domain.BaseTime;
 import lombok.*;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -101,13 +100,12 @@ public class Board extends BaseTime {
             return toStringDateTime(modifyName);
         }
 
-        public Response(Long id, String type, String title, Long readCnt, LocalDateTime registerTime, String registerName) {
+        public Response(Long id, String type, String title, Long readCnt, LocalDateTime registerTime) {
             this.id = id;
             this.type = type;
             this.title = title;
             this.readCnt = readCnt;
             this.registerTime = toStringDateTime(registerTime);
-            this.registerName = registerName;
         }
 
         public Response(Object o) {
@@ -127,7 +125,7 @@ public class Board extends BaseTime {
             this.modifyId = board.getModifyId();
         }
 
-        public Response(Long id, String type, String startDate, String endDate, String allTimeYn, String title, String contents, String videoUrl, Long readCnt, LocalDateTime registerTime, LocalDateTime modifyTime, String registerName, String modifyName) {
+        public Response(Long id, String type, String startDate, String endDate, String allTimeYn, String title, String contents, String videoUrl, Long readCnt, LocalDateTime registerTime) {
             this.id = id;
             this.type = type;
             this.startDate = startDate;
@@ -138,9 +136,6 @@ public class Board extends BaseTime {
             this.videoUrl = videoUrl;
             this.readCnt = readCnt;
             this.registerTime = toStringDateTime(registerTime);
-            this.modifyTime = toStringDateTime(modifyTime);
-            this.registerName = registerName;
-            this.modifyName = modifyName;
         }
     }
 }

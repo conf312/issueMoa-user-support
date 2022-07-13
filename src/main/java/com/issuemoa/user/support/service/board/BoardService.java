@@ -48,8 +48,7 @@ public class BoardService {
                 .from(board)
                 .where(
                     containsSearch(request.getSearch()),
-                    eqType(request.getType())
-                )
+                    eqType(request.getType()))
                 .offset(page)
                 .limit(pageSize)
                 .orderBy(board.registerTime.desc())
@@ -58,8 +57,8 @@ public class BoardService {
         Long totalCnt = (long) jpaQueryFactory.select(board.count()).from(board)
                 .where(
                     containsSearch(request.getSearch()),
-                    eqType(request.getType())
-                ).fetchOne();
+                    eqType(request.getType()))
+                .fetchOne();
 
         int totalPage = (int) Math.ceil((float) totalCnt / pageSize);
         totalPage = totalPage == 0 ? 1 : totalPage;
@@ -87,8 +86,7 @@ public class BoardService {
             board.contents,
             board.videoUrl,
             board.readCnt,
-            board.registerTime,
-            board.modifyTime
+            board.registerTime
         ))
         .from(board)
         .where(board.id.eq(id))

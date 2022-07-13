@@ -20,7 +20,13 @@ public class RestMessage {
         this.errors = errors;
     }
 
-    public RestMessage(HttpStatus status, String error, Object data) {
+    public RestMessage(HttpStatus status, Object data) {
+        super();
+        this.status = status;
+        this.data = data;
+    }
+
+    public RestMessage(HttpStatus status, Object data, String error) {
         super();
         this.status = status;
         this.errors = Arrays.asList(error);
