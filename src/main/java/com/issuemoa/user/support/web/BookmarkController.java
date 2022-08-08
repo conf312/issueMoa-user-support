@@ -36,8 +36,8 @@ public class BookmarkController {
     }
 
     @PostMapping("/bookmark/deleteById")
-    public ResponseEntity<RestMessage> deleteById(Long id) {
-        bookmarkService.deleteById(id);
+    public ResponseEntity<RestMessage> deleteById(Bookmark.Request request) {
+        bookmarkService.deleteById(request.getId());
         return ResponseEntity.ok()
                 .headers(new HttpHeaders())
                 .body(new RestMessage(HttpStatus.OK, ""));

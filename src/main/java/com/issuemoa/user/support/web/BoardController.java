@@ -19,7 +19,7 @@ public class BoardController {
     @GetMapping("/{type}/list")
     public ResponseEntity<RestMessage> findAll(Board.Request request,
                                   @RequestParam(required = false, defaultValue = "0") Integer page,
-                                  @RequestParam(required = false, defaultValue = "5") Integer pageSize) {
+                                  @RequestParam(required = false, defaultValue = "24") Integer pageSize) {
         return ResponseEntity.ok()
                 .headers(new HttpHeaders())
                 .body(new RestMessage(HttpStatus.OK, boardService.findAll(request, page, pageSize)));
@@ -30,5 +30,12 @@ public class BoardController {
         return ResponseEntity.ok()
                 .headers(new HttpHeaders())
                 .body(new RestMessage(HttpStatus.OK, boardService.findById(id)));
+    }
+
+    @PostMapping("/{type}/countByTypeAndRegisterId")
+    public ResponseEntity<RestMessage> countByTypeAndRegisterId(Board.Request request) {
+        return ResponseEntity.ok()
+                .headers(new HttpHeaders())
+                .body(new RestMessage(HttpStatus.OK, boardService.countByTypeAndRegisterId(request)));
     }
 }

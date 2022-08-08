@@ -42,6 +42,8 @@ public class BoardService {
                     board.id,
                     board.type,
                     board.title,
+                    board.contents,
+                    board.videoUrl,
                     board.readCnt,
                     board.registerTime
                 ))
@@ -101,5 +103,9 @@ public class BoardService {
         resultMap.put("fileList", fileMstService.findByTargetIdAndUseYn(id,"Y"));
 
         return resultMap;
+    }
+
+    public int countByTypeAndRegisterId(Board.Request request) {
+        return boardRepository.countByTypeAndRegisterId(request.getType(), request.getRegisterId());
     }
 }

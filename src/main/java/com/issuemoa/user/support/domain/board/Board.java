@@ -100,10 +100,12 @@ public class Board extends BaseTime {
             return toStringDateTime(modifyName);
         }
 
-        public Response(Long id, String type, String title, Long readCnt, LocalDateTime registerTime) {
+        public Response(Long id, String type, String title, String contents, String videoUrl, Long readCnt, LocalDateTime registerTime) {
             this.id = id;
             this.type = type;
             this.title = title;
+            this.contents = contents;
+            this.videoUrl = videoUrl;
             this.readCnt = readCnt;
             this.registerTime = toStringDateTime(registerTime);
         }
